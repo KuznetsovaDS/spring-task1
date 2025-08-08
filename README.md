@@ -2,14 +2,14 @@
 # Веб-приложение для создания, просмотра, обновления и удаления задач с пагинацией
 
 Технологии:
--Java 17+
--Spring MVC 6, Spring Data JPA 3
--Hibernate ORM 7
--HikariCP
--Thymeleaf 3.1
--MySQL 8
--Maven
--Деплой: WAR на Tomcat 10.1+ (без Spring Boot)
+- Java 17+
+- Spring MVC 6, Spring Data JPA 3
+- Hibernate ORM 7
+- HikariCP
+- Thymeleaf 3.1
+- MySQL 8
+- Maven
+- Деплой: WAR на Tomcat 10.1+ (без Spring Boot)
 
 Подготовка БД
 Укажите параметры подключения в src/main/resources/application.properties.
