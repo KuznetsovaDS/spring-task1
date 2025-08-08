@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Tasks</title>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+</head>
+<body>
+    <h1>Tasks</h1>
+    <div th:each="task : ${tasks}">
+        <a th:href="@{'/' + ${task.id}}" th:text="|${task.id}. ${task.description} ${task.status}|">Tasks in text</a>
+    </div>
+
+    <div>
+        <a th:if="${hasPrevious}"
+           th:href="@{/(page=${currentPage - 1})}"><- Back</a>
+        <span>Page [[${currentPage + 1}]]</span>
+        <a th:if="${hasNext}"
+           th:href="@{/(page=${currentPage + 1})}">Forward -></a>
+    </div>
+
+    <form action="/creation" >
+        <button type="submit">Create</button>
+    </form>
+</body>
+</html>

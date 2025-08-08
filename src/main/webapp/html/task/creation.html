@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Task</title>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+</head>
+<body>
+<h1>Create new task</h1>
+    <form th:action="@{/}" method="post" th:object="${taskCreateEditDto}">
+        <label for="description">Description:
+            <input id="description" type="text" name="description" th:value="*{description}">
+        </label><br>
+        <div th:each="status : ${status}">
+            <input th:id="${status}" type="radio" name="status" th:value="${status}" th:checked="${status == taskCreateEditDto.status}">
+            <label th:for="${status}" th:text="${status}">Status name</label>
+        </div><br>
+        <div th:if="${#fields.hasErrors('status')}" class="error">
+            <span th:errors="*{status}"></span>
+        </div>
+        <button type="submit">Create</button>
+    </form>
+    <a href="/">Back</a>
+</body>
+</html>

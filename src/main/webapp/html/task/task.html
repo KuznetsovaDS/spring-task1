@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Task</title>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+</head>
+<body>
+    <form th:action="@{/{taskId}/update(taskId=${task.id})}" method="post" th:object="${task}">
+        <label for="description">Description:
+            <input id="description" type="text" name="description" th:value="*{description}">
+        </label><br>
+        <p>Status:</p>
+        <div th:each="status : ${status}">
+            <input th:id="${status}" type="radio" name="status" th:value="${status}" th:checked="${status == task.status}">
+            <label th:for="${status}" th:text="${status}">Status name</label>
+        </div><br>
+        <button type="submit">Update</button>
+    </form>
+<form th:action="@{/{taskId}/delete(taskId=${task.id})}" method="post">
+    <button type="submit">Delete</button>
+</form>
+    <a href="/">Tasks</a>
+</body>
+</html>
